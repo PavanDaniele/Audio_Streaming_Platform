@@ -1,0 +1,137 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br><br>
+    <div class="row">
+        <div class="mb-8 mb-md-6 col-md-6" style="height: 25em; display: flex; align-items: center; justify-content: center ">
+        <div class="flip-card-big shadow" >
+          <div class="flip-card-inner-big">
+               <a href="{{ url_for('playlist_page', id_playlist=play_love.id_playlist) }}">
+                <div class="flip-card-front-big">
+                    <div>
+                        <img src="{{ playlist_logo }}" alt="Avatar" style="width:400px;height:400px;">
+                    </div>
+                </div>
+                <div class="flip-card-back-big">
+                   <h1 class="card-title text-dark" style="height: 8em; display: flex; align-items: center; justify-content: center ">Best Playlist</h1>
+                </div>
+               </a>
+          </div>
+        </div>
+        </div>
+      <div class="col-md-6" >
+        <div class="card-body shadow  mb-8 mb-md-6" >
+        <h1 style="margin-left: initial">Recommended Songs</h1>
+         <div class="card-list-song">
+          <hr class="solid">
+                {% for song in songs %}
+                    <div class="card-body lol">
+                        <div class="row g-0 ">
+                            <div class="col-md-2">
+                                <img src="{{ url_for('static', filename="Image/"+song[1]) }}" width="70" height="45" class="img-rounded" alt="PlaylistLogo">
+                            </div>
+                            <div class="col-sm">
+                                <div class="card-title mona">
+                                     <h6>{{ song[0].title }}</h6>
+                                </div>
+                                <p>{{ song[2].art_name }}</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>{{ song[0].type }}</p>
+                            </div>
+                            <div class="col-sm">
+                                <p>{{ song[3] }}</p>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="dropdown">
+                                    <button class="btn dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        </svg>
+                                    </button>
+                                    <ul class="dropdown-menu" style="margin:4px; padding:4px; width: 300px; height: 350px; overflow-x: hidden; overflow-y: auto; text-align:justify;"  role="menu" aria-labelledby="dLabel">
+                                        <form method="POST" action=""  class="live-search-box col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                                            <h3>Choose a Playlist </h3>
+                                            <hr>
+                                        </form>
+                                        {% for all in song[5] %}
+                                            <li class="card-body prova-home"><a class="dropdown-item"  href="{{ url_for('add_song_playlist', id_song=song[0].id_songs ,id_playlist=all.id_playlist, id_playlist_arr=all.id_playlist) }}">
+                                                {{ all.name }}
+                                            </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+         </div>
+    </div>
+    </div>
+    </div>
+    <br><br><br>
+    <h1 style="margin-left: initial">Artists</h1>
+    <br>
+    <div class="card-list-search" id="card-list">
+            {% for i in artists %}
+                     <div class="flip-card shadow">
+                        <a href="{{ url_for('artist_profile_page', id_artists=i[0].id_artists) }}" class=home_artista>
+                           <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <div class="card-body">
+                                      <img src="{{ i[1] }}"  class="card-img" alt="...">
+                                   </div>
+                                </div>
+                                <div class="flip-card-back">
+                                      <h4 class="card-title text-dark" style="height: 8em; display: flex; align-items: center; justify-content: center ">{{ i[0].art_name }}</h4>
+                                  </div>
+                            </div>
+                        </a>
+                    </div>
+            {% endfor %}
+    </div>
+    <br><br>
+    <h1 style="margin-left: initial">Album</h1>
+    <br>
+    <div class="card-list-search" id="card-list">
+            {% for i in album %}
+                <div class="flip-card shadow">
+                    <a  href="{{ url_for('album_page', id_album=i[0].id_album) }}" class=home_artista>
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-body">
+                                <img src="{{ i[1] }}"  class="card-img" alt="...">
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                          <h4 class="card-title text-dark" style="height: 8em; display: flex; align-items: center; justify-content: center">{{ i[0].title }}</h4>
+                        </div>
+                        </div>
+                    </a>
+                </div>
+        {% endfor %}
+    </div>
+    <br><br>
+    <h1 style="margin-left: initial">Playlist</h1>
+    <br>
+    <div class="card-list-search" id="card-list">
+            {% for i in playlist %}
+                <div class="flip-card shadow">
+                    <a  href="{{ url_for('playlist_page', id_playlist=i[0].id_playlist) }}" class=home_artista>
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="card-body">
+                                <img src="{{ i[1] }}"  class="card-img" alt="...">
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                          <h4 class="card-title text-dark" style="height: 8em; display: flex; align-items: center; justify-content: center">{{ i[0].name }}</h4>
+                        </div>
+                        </div>
+                    </a>
+                </div>
+        {% endfor %}
+    </div>
+    <br><br>
+{% endblock %}

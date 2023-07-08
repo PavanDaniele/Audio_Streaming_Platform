@@ -1,0 +1,50 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br>
+    <br>
+    <h2 class="text-center">Add Album</h2>
+    <hr>
+    <br>
+    <form method="POST">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="album_name" placeholder="Album name" name="album_name">
+                    <label for="album_name">Album name</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <hr>
+                <table class="table" id="tabella_canzoni">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titolo</th>
+                            <th scope="col">Durata</th>
+                            <th scope="col">Genere</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" id="n_song">1</th>
+                            <td><input class="form-control rounded-0" type="text" name="title" id="title" placeholder="Title"></td>
+                            <td><input class="form-control rounded-0" type="text" name="length" id="length" placeholder="Length"></td>
+                            <td><input class="form-control rounded-0" type="text" name="type" id="type" placeholder="Genre"></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="btn btn-outline-dark" id="insertTrack" href="#" onclick="add_track()">Add track</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

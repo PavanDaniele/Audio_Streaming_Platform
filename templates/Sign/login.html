@@ -1,0 +1,45 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br>
+    <h1 class="text-center">Login</h1>
+    <br>
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+             <div class="row justify-content-center">
+                <div class="col-sm-3 alert alert-danger" role="alert">
+                    <p>{{ messages }}</p>
+                </div>
+             </div>
+         {% endif %}
+    {% endwith %}
+    <form method="POST">
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="mail" placeholder="Enter e-mail" name="mail">
+                    <label for="mail">E-mail</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                    <label for="pwd">Password</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    <div class="text-center">
+        <p>Don't have an account? <a class="btn btn-primary" role="button" href="{{ url_for('signup') }}">Sign up</a></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+
+    <body>
+        <nav class="p-3 mb-3 border-bottom shadow">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="{{ url_for('index') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                        <svg class="bi me-2 " width="40" height="32" role="img" aria-label="Unify" >
+                            <img width="90" height="60" alt="Logo Image" src="{{ url_for('static', filename="/Image/images.jpeg") }}">
+                        </svg>
+                    </a>
+
+                    {% if current_user.is_authenticated %}
+                        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="{{ url_for('album_list_page')}}" class="nav-link px-2 link-dark">Album</a></li>
+                            <li><a href="{{ url_for('pl_page')}}" class="nav-link px-2 link-dark">Playlist</a></li>
+                            <li><a href="{{ url_for('songs_stats') }}" class="nav-link px-2 link-dark">Stats</a></li>
+
+                            {% if current_user.is_artist() %}
+                                <li><a href="{{ url_for('add') }}" class="nav-link px-2 link-dark">Create</a></li>
+                            {% endif %}
+                        </ul>
+                        {% if search_bar %}
+                            <form method="POST" action="{{ url_for('search') }}"  class="live-search-box col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                                <input  type="search" class="form-control filter" id="filter" onkeyup="searchProduct()" placeholder="Search.." aria-label="Search" >
+                            </form>
+                            {% else %}
+                                <a href="{{ url_for('search') }}" class="nav-link  link-dark ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </a>
+
+                        {% endif %}
+
+                        <div class="dropdown">
+                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{{ url_for('static', filename=user_image) }}" width="42" height="42" class="rounded-square" alt="...">
+                                {{ current_user.name }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% if IS_ARTIST == True %}
+                                    {% if artist_bool %}
+                                            <li><a class="dropdown-item" href="{{ url_for('listener_page') }}">Listener</a></li>
+                                        {% else %}
+                                            <li><a class="dropdown-item" href="{{ url_for('artist_page') }}">Artist</a></li>
+                                    {% endif %}
+                                {% else %}
+                                    <li><a class="dropdown-item" href="{{ url_for('listener_page') }}">Profile</a></li>
+                                {% endif %}
+
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Sign out</a></li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    </body>
+

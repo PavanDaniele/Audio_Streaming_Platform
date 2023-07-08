@@ -1,0 +1,73 @@
+
+{% extends "Home/base.html" %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-3">
+                <img src="{{ url_for('static', filename=playlist_logo) }}" style="width:300px;height:300px;" alt="PlaylistLogo">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <div class="card-title">
+                     <h1 style="padding-left: 20px">{{ playlist.name }}</h1>
+
+                </div>
+                    <div class="card-list-song" style="margin-left: 20px">
+                        <p>{{ playlist.description }}</p>
+                        <p>{{ playlist.date_creation }}</p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+   <hr class="solid">
+    <div class="container">
+        {% for play in playlist_list_song %}
+            <div class="card-body">
+                <div class="row g-0">
+                    <div class="col-sm-1">
+                        <img src="{{ url_for('static', filename=play[1]) }}" width="90" height="60" class="img-rounded" alt="PlaylistLogo">
+                    </div>
+                    <div class="col-sm">
+                        <div class="card-title">
+                             <h5>{{ play[0].title }}</h5>
+                        </div>
+                        <p>{{ play[2].art_name }}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p>{{ play[0].type }}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p>{{ play[3] }}</p>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="dropdown">
+                            <button class="btn dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu" onkeyup="clearCache()" style="margin:4px; padding:4px; width: 300px; height: 350px; overflow-x: hidden; overflow-y: auto; text-align:justify;"  role="menu" aria-labelledby="dLabel">
+                                <form method="POST" action=""  class="live-search-box col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                                    <h3>Choose a Playlist </h3>
+                                    <hr>
+                                </form>
+                                {% for all in play[5] %}
+                                    <li class="card-body prova-playlist"><a class="dropdown-item"  href="{{ url_for('add_song_playlist', id_song=play[0].id_songs ,id_playlist=all.id_playlist, id_playlist_arr=playlist.id_playlist) }}">
+                                        {{ all.name }}
+                                    </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}

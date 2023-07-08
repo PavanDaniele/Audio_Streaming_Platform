@@ -1,0 +1,80 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br><br>
+    <h1 class="text-center">Signup as Listener</h1>
+    <br><br>
+
+    {% if messages %}
+        <div class="alert alert-danger" role="alert">
+            get_flashed_messages()
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="First name" name="name">
+                    <label for="name">First name</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="surname" placeholder="Last name" name="surname">
+                    <label for="surname">Last name</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="date" class="form-control" id="birth_date" name="birth_date">
+                    <label for="birth_date">Birthday</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <label>Gender: </label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="checkbox_male" value="M" name="sex" checked>
+                    <label class="form-check-label" for="checkbox_male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="checkbox_female" value="F" name="sex">
+                    <label class="form-check-label" for="checkbox_female">Female</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="E-mail">
+                    <label for="mail">E-mail</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+                    <label for="pwd">Password</label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="pwd_repeat" name="pwd_repeat" placeholder="Repeat password">
+                    <label for="pwd_repeat">Repeat password</label>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+    <p class="text-center">Do you already have an account? <a class="btn btn-primary" role="button" href="{{ url_for('login') }}">Sign in</a></p>
+{% endblock %}

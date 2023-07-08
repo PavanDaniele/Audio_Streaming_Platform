@@ -1,0 +1,31 @@
+{% extends "Home/base.html" %}
+{% block content %}
+    <section class="py-5 text-center container ">
+        <div class="row py-lg-3">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Album</h1>
+            </div>
+        </div>
+    </section>
+    <div class="album py-3 bg-light shadow">
+        <div class="container">
+            <div class="row row-cols-sm-4">
+                {% for al in album %}
+                    <div class="row g-0">
+                        <div class="col g-5">
+                            <img src="{{ url_for('static', filename="Image/"+al[0].image) }}" width="200" height="200" class="card-img" alt="...">
+                            <div class="card-body shadow">
+                                <a class="home_artista" href="{{ url_for('album_page', id_album=al[0].id_album) }}" ><h5 class="card-title">{{ al[0].title }}</h5></a>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted "> {{ al[0].date_pub }}</small><small class="text-muted ">  {{ al[1].art_name }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

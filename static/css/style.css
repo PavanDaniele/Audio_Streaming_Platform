@@ -1,0 +1,32 @@
+.navbar-black{
+    background: black;
+}
+
+.navbar-brand{
+    color: #ffd200;
+}
+.nav-link{
+    color: black;
+}
+.title{
+    color: #ffd200;
+}
+.is-offset-4{
+    background: white;
+    align-items: center;
+}
+.search{
+    width: 800px !important;
+}
+.home_artista {
+color: black;
+text-decoration: none;
+}
+.play_artista {
+color: white;
+text-decoration: none;
+}
+.home_aggiungi{
+    color: green;
+    text-decoration: none;
+}

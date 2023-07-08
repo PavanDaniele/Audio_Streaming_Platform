@@ -1,0 +1,63 @@
+
+{% extends "Stats/Artist/stats_artist.html" %}
+
+{% block lol %}
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Top 10</h1>
+        </div>
+
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+        <script type="text/javascript">
+            const song = {{ songs_name | tojson }};
+            const lol = JSON.parse(song);
+            new Chart("myChart", {
+                type: 'bar',
+                data: {
+                    labels: lol,
+                    datasets: [{
+                        data: [{{ number | join(', ') }}],
+                        lineTension: 0,
+                        backgroundColor: 'transparent',
+                        borderColor: '#007bff',
+                        borderWidth: 4,
+                        pointBackgroundColor: '#007bff'
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: false
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+        </script>
+
+        <h2>Types Ranking</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    {% for header in headings %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </main>
+
+{% endblock %}

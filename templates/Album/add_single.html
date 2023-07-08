@@ -1,0 +1,42 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br>
+    <br>
+    <h2 class="text-center">Add Single</h2>
+    <hr>
+    <form method="POST">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="single_name" placeholder="Album name" name="single_name">
+                    <label for="single_namee">Single name</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="single_length" placeholder="Length" name="single_length">
+                    <label for="single_length">Single length</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <div class="form-floating mb-6">
+                    <input type="text" class="form-control" id="single_genre" placeholder="Genre" name="single_genre">
+                    <label for="single_genre">Single genre</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

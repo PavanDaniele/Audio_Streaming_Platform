@@ -1,0 +1,53 @@
+
+{% extends "Home/base.html" %}
+
+{% block content %}
+
+    <br><br>
+    <h1 style="margin-left: initial">Playlist</h1>
+    <br><br>
+    <div class="row">
+        <div class="mb-8 mb-md-6 col-md-6" style="height: 37em; display: flex; align-items: center; justify-content: center ">
+        <div class="flip-card-big shadow" >
+          <div class="flip-card-inner-big">
+               <a href="{{ url_for('playlist_page', id_playlist=play_love.id_playlist) }}">
+                <div class="flip-card-front-big">
+                    <div>
+                        <img src="{{ playlist_logo }}" alt="Avatar" style="width:400px;height:400px;">
+                    </div>
+                </div>
+                <div class="flip-card-back-big">
+                   <h1 class="card-title text-dark" style="height: 8em; display: flex; align-items: center; justify-content: center ">Best Playlist</h1>
+                </div>
+               </a>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-6" >
+        <div class="card-list-playlist" id="card-list">
+            <div class="row justify-content-around">
+                {% for play in playlist %}
+                    <div class="flip-card shadow">
+                        <a class="home_artista" href="{{ url_for('playlist_page', id_playlist=play[2]) }}" >
+                            <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card-body">
+                                            <img src="{{ playlist_img }}"  class="card-img" alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                          <h4 class="card-title text-dark" style="height: 8em; display: flex; align-items: center; justify-content: center ">{{ play[0] }}</h4>
+                                    </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            <br>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <br><br><br>
+{% endblock %}
+

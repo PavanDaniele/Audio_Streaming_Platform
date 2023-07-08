@@ -1,0 +1,58 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br>
+    <br>
+    <h2 class="text-center">Cosa vuoi aggiungere?</h2>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <div class="text-center">
+                            <h5>Album</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Un Album è un insieme di canzoni </p>
+                        <a href="{{ url_for('add_album') }}" class="btn btn-outline-primary">Album</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <div class="text-center">
+                            <h5>Singolo</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Un Singolo è una canzone pubblicata per conto suo</p>
+                        <a href="{{ url_for('add_single') }}" class="btn btn-outline-primary">Singolo</a>
+                    </div>
+                </div>
+                <br><br>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 ">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <div class="text-center">
+                                <h5>Playlist</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Una Playlist è un insieme di canzoni</p>
+                            <a href="{{ url_for('create_playlist') }}" class="btn btn-outline-primary">Playlist</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+{% endblock %}

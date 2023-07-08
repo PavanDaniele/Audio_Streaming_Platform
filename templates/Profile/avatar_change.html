@@ -1,0 +1,18 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
+    <br>
+    <br>
+    <h2>Choose an Image</h2>
+    <hr>
+    <div class="row">
+        {% for i in images %}
+            <div class="col-md-2" >
+               <a href="{{ url_for('choose_avatar', name_avatar=i[1]) }}">
+                   <img  width="120" height="120" alt="Logo Image" src="{{ i[0] }}">
+               </a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
