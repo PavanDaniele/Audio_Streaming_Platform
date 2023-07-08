@@ -1,0 +1,14 @@
+flask-sqlalchemy
+Flask-Migrate
+psycopg2-binary
+
+flask-login
+flask_wtf
+flask_bcrypt
+Werkzeug
+psycopg2
+
+Flask~=2.1.1
+SQLAlchemy~=1.4.36
+WTForms~=3.0.1
+passlib~=1.7.4
