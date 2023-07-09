@@ -9,7 +9,7 @@ The web application, called 'Unify', interfaces with an underlying SQL database 
 PostgreSQL was chosen as the DBMS, and pgadmin was chosen to communicate with the database.
 
 - [Autentication](#Autentication)
-- [Statistic](#Statistic)
+- [Statistics](#Statistics)
 - [Logical & Physical model design](#Logical-&-Physical-model-design)
 - [Sample queries to populate the database](#Sampl-queries-to-populate-the-database)
 
