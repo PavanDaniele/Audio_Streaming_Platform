@@ -11,7 +11,7 @@ PostgreSQL was chosen as the DBMS, and pgadmin was chosen to communicate with th
 - [Autentication](#Autentication)
 - [Statistics](#Statistics)
 - [Logical and Physical model design](#Logical-and-Physical-model-design)
-- [Sample queries to populate the database](#Sampl-queries-to-populate-the-database)
+- [Sample queries to populate the database](#Sample-queries-to-populate-the-database)
 
 # Autentication
 Upon registration, each user can decide whether to create a "Listener" or "Artist" account. Both profiles can create playlists to group, for example, favorite songs, but users who register with the "Artist" account are entitled to additional features such as:
