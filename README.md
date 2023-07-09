@@ -10,10 +10,10 @@ PostgreSQL was chosen as the DBMS, and pgadmin was chosen to communicate with th
 
 - [Autentication](#Autentication)
 - [Statistics](#Statistics)
-- [Logical & Physical model design](#Logical-&-Physical-model-design)
+- [Logical and Physical model design](#Logical-and-Physical-model-design)
 - [Sample queries to populate the database](#Sampl-queries-to-populate-the-database)
 
-## Autentication
+# Autentication
 Upon registration, each user can decide whether to create a "Listener" or "Artist" account. Both profiles can create playlists to group, for example, favorite songs, but users who register with the "Artist" account are entitled to additional features such as:
 - creating songs to include in any album or to leave as singles.
 - access to an analytical interface that allows you to consult statistical data on your songs, albums, and playlists.
@@ -27,7 +27,7 @@ Authentication (login with e-mail and password) is required to use Unify; the fo
 
 
 However, if you don't have an account, you must create one.
-### Create an account
+## Create an account
 When creating an account, you are asked for the type of profile you want to use:
 ![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/8936c4e9-78dc-41b4-8314-6bcf66bc73a8)
 
@@ -38,16 +38,16 @@ If you're a Listener:
 If you're an Artist:
 ![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/27bfc8e4-8473-4c06-8afc-3be539e94215)
 
-## Statistics
+# Statistics
 This special area shows, in the form of a bar chart, statistics related to listening to a particular song, artist, rather than a playlist or genre of music (Type).
 The image below shows the Statistics page:
 ![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/3f396d62-4a90-49fc-bd85-26891ed16293)
 
-## Logical & Physical model design
-- ### Logical model design
+# Logical and Physical model design
+- ## Logical model design
 ![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/0d3f856f-648f-4aed-b84b-578753636d58)
 
-- ### Physical model design
+- ## Physical model design
 ![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/79ff7217-a1fb-4536-8453-e91fdeed1baa)
 
 In the logical (relational) schema there are all the classes with their appropriately chosen attributes.
@@ -62,4 +62,12 @@ The **Album** table identifies the various albums uploaded by artists, it has as
 
 The primary purpose of the web app is to act as an audio streaming platform, so the ability for any user to listen to any song is necessary. In the association between Users and Songs, it was deemed appropriate to add a Listen table that would group information such as the number of times a particular song is listened to and the date of the last listen. These attributes will be useful for implementing listening statistics.
 
-## Sample queries to populate the database
+# Sample queries to populate the database
+The queries shall be carried out one by one:
+![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/943a66e9-cbf0-45cd-b555-be3f81464431)
+
+To delete:
+![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/8c2ee0d1-c6c7-4355-8515-924e7863e07d)
+
+Other:
+![image](https://github.com/PavanDaniele/Audio_Streaming_Platform/assets/127297363/0325ca68-4f05-4f37-b5a1-3a43485237bb)
